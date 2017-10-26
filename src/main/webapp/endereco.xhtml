@@ -13,11 +13,21 @@
         
         <h1>Teste embedded</h1>
         
-        <h:form id="usuario">
+        Id: <h:inputText value="#{usuarioBean.usuario.id}" />
+        <br />
+        Nome: <h:inputText value="#{usuarioBean.usuario.nome}" />
+        <br />
+        <h:form id="endereco">
            
-            Nome: <h:inputText id="nome" value="#{usuarioBean.usuario.nome}" />
+            Rua: <h:inputText id="rua" value="#{enderecoBean.endereco.rua}" />
             <br />
-            <h:commandButton type="submit" value="Salvar Usuario" action="#{usuarioBean.salvarUsuario}" />
+            CEP: <h:inputText id="cep" value="#{enderecoBean.endereco.cep}" />
+            <br />
+            Estado: <h:inputText id="estado" value="#{enderecoBean.endereco.estado}" />
+            <br />
+            Cidade: <h:inputText id="cidade" value="#{enderecoBean.endereco.cidade}" />
+            <br />
+            <h:commandButton type="submit" value="Salvar Endereco" action="#{enderecoBean.salvarEndereco}" />
 
         </h:form>
         
@@ -36,9 +46,7 @@
 
                 <h:column>
                     <f:facet name="header">Opcoes</f:facet>
-                    <h:commandLink value="Cadastrar Endereco" action="#{usuarioBean.executar}">
-                        <f:setPropertyActionListener value="#{usuarioBean.usuario}" target="#{enderecoBean}" />
-                    </h:commandLink>
+                    <h:commandButton value="Cadastrar endereco" action="" />
                 </h:column>
             </h:dataTable>
         </h:form>
