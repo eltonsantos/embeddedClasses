@@ -31,11 +31,6 @@ public class UsuarioController implements Serializable {
         manager.close();
         return "index?faces-redirect=true";
     }
-    
-    public String executar(){
-        
-        return "endereco?faces-redirect=true";
-    }
 
     public Usuario getUsuario() {
         return usuario;

@@ -8,20 +8,25 @@
         <title>Teste Embedded</title>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />        
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
         <f:metadata>
-            <f:viewParam name="id" value="#{enderecoBean.endereco}" converter="#{endereco}" />
+            <f:viewParam name="id" value="#{usuarioBean.usuario.id}" />
+            <f:viewParam name="nome" value="#{usuarioBean.usuario.nome}" />
         </f:metadata>
+        
     </h:head>
     <h:body>
-        
-        
-        
+              
         <h1>Teste embedded</h1>
         
         Id: <h:inputText value="#{usuarioBean.usuario.id}" />
         <br />
         Nome: <h:inputText value="#{usuarioBean.usuario.nome}" />
         <br />
+        
+        <br />
+        
+        
         <h:form id="endereco">
            
             Rua: <h:inputText id="rua" value="#{enderecoBean.endereco.rua}" />
@@ -38,21 +43,27 @@
         
         
         <h:form>
-            <h:dataTable value="#{usuarioBean.listarUsuarios()}" var="usuario">
+            <h:dataTable value="#{enderecoBean.listarEnderecos()}" var="endereco">
                 <h:column>
-                    <f:facet name="header">Id</f:facet>
-                    <h:outputText value="#{usuario.id}"></h:outputText>
+                    <f:facet name="header">Rua</f:facet>
+                    <h:outputText value="#{endereco.rua}"></h:outputText>
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Nome</f:facet>
-                    <h:outputText value="#{usuario.nome}"></h:outputText>
+                    <f:facet name="header">CEP</f:facet>
+                    <h:outputText value="#{endereco.cep}"></h:outputText>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Cidade</f:facet>
+                    <h:outputText value="#{endereco.cidade}"></h:outputText>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Estado</f:facet>
+                    <h:outputText value="#{endereco.estado}"></h:outputText>
                 </h:column>
 
-                <h:column>
-                    <f:facet name="header">Opcoes</f:facet>
-                    <h:commandButton value="Cadastrar endereco" action="" />
-                </h:column>
             </h:dataTable>
         </h:form>
         

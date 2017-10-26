@@ -1,6 +1,7 @@
 package br.com.cagece.controller;
 
 import br.com.cagece.model.Endereco;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
@@ -16,6 +17,10 @@ public class EnderecoController {
     
     public EnderecoController(){
         this.endereco = new Endereco();
+    }
+    
+    public List<Endereco> listarEnderecos(){
+        return manager.createNativeQuery("SELECT * FROM usuario", Endereco.class).getResultList();
     }
     
     public String salvarEndereco(){
