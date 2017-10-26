@@ -11,7 +11,7 @@ import javax.persistence.Persistence;
 @ApplicationScoped
 public class Util {
 
-    private final EntityManagerFactory emf;
+    private EntityManagerFactory emf;
     
     // Construtor
     public Util(){

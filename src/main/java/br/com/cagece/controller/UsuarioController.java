@@ -1,17 +1,14 @@
 package br.com.cagece.controller;
 
 import br.com.cagece.model.Usuario;
-
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-@SessionScoped
+@ViewScoped
 @ManagedBean(name="usuarioBean")
 public class UsuarioController implements Serializable {
     

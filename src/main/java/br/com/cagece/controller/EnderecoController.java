@@ -2,11 +2,11 @@ package br.com.cagece.controller;
 
 import br.com.cagece.model.Endereco;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-@SessionScoped
+@ViewScoped
 @ManagedBean(name="enderecoBean")
 public class EnderecoController {
     
