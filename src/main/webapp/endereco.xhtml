@@ -18,12 +18,12 @@
         
         Id: <h:outputText value="#{params.id}" />
         <br />
-        Nome: <h:outputText value="#{usuarioBean.usuario.nome}" />
+        Nome: <h:outputText value="#{usuarioBean.usuarioId}" />
         <br />
         
-        <h:outputFormat value="Hello,{0}. You are from {1}.">
+        <h:outputFormat value="Id:{0}. Nome: {1}.">
             <f:param value="#{usuarioBean.usuario.id}" />
-            <f:param value="#{usuarioBean.usuario.nome}" />
+            <f:param value="#{usuarioBean.usuarioId}" />
         </h:outputFormat>
         
         <br />
