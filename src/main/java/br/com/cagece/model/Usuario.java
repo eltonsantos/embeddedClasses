@@ -27,10 +27,8 @@ public class Usuario implements Serializable {
         @AttributeOverride(name="cidade", column=@Column(name="cidade"))
     })
     private Endereco endereco;
-    
-    public Usuario(Integer id, String nome){
-        this.id = id;
-        this.nome = nome;
+
+    public Usuario() {
     }
 
     public Integer getId() {
