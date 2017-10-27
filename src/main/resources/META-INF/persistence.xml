@@ -6,6 +6,7 @@
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     
     <class>br.com.cagece.model.Usuario</class>
+    <class>br.com.cagece.model.Endereco</class>
         
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/embedded" />

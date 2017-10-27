@@ -10,8 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         
         <f:metadata>
-            <f:viewParam name="id" value="#{usuarioBean.usuario.id}" />
-            <f:viewParam name="nome" value="#{usuarioBean.usuario.nome}" />
+            <f:viewParam name="usuarioId" value="#{usuarioBean.usuario.id}" />
         </f:metadata>
         
     </h:head>
@@ -25,8 +24,8 @@
             <br />
             <h:commandButton type="submit" value="Salvar Usuario" action="#{usuarioBean.salvarUsuario()}" />
 
-        </h:form>
-           
+                    </h:form>
+
         <h:form>
             <h:dataTable value="#{usuarioBean.listarUsuarios()}" var="usuario">
                 <h:column>
@@ -40,8 +39,14 @@
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Opcoes</f:facet>                   
+                    <f:facet name="header">Opcoes</f:facet>
+                    
                     <h:link value="Cadastrar Endereco" outcome="endereco?faces-redirect=true" includeViewParams="true" />
+                   
+                    <h:commandButton value="Cadastrar endereço" action="#{usuarioBean.executar}">
+                        <f:param name="usuarioId" value="#{usuario.id}" />
+                    </h:commandButton>
+                    
                 </h:column>
             </h:dataTable>
         </h:form>

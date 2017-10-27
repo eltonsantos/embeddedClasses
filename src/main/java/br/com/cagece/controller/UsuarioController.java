@@ -4,9 +4,11 @@ import br.com.cagece.model.Endereco;
 import br.com.cagece.model.Usuario;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
@@ -18,6 +20,7 @@ public class UsuarioController implements Serializable {
     private EntityManager manager;
     private Usuario usuario;
     private Endereco endereco;
+    private String usuarioId;
     
     public UsuarioController(){
         this.usuario = new Usuario();
@@ -37,16 +40,20 @@ public class UsuarioController implements Serializable {
         return "index?faces-redirect=true";
     }
     
-    public List<Endereco> listarEnderecos(){
-        return manager.createNativeQuery("SELECT * FROM usuario", Endereco.class).getResultList();
+    public String executar(){
+        
+        System.out.println("Passa aqui");
+        FacesContext fc = FacesContext.getCurrentInstance();
+	this.usuarioId = getUsuarioParam(fc);
+                
+        return "endereco?faces-redirect=true";
     }
     
-    public String salvarEndereco(){
-        manager.getTransaction().begin();
-        manager.persist(endereco);
-        manager.getTransaction().commit();
-        manager.close();
-        return "endereco?faces-redirect=true";
+    public String getUsuarioParam(FacesContext fc){
+
+	Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+	return params.get("usuarioId");
+
     }
 
     public Usuario getUsuario() {
@@ -64,5 +71,13 @@ public class UsuarioController implements Serializable {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-   
+
+    public String getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(String usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+    
 }

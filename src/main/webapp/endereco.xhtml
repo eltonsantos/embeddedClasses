@@ -9,60 +9,42 @@
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />        
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         
-
+ 
         
     </h:head>
     <h:body>
               
         <h1>Teste embedded</h1>
         
-        Id: <h:inputText value="#{usuarioBean.usuario.id}" />
+        Id: <h:outputText value="#{params.id}" />
         <br />
-        Nome: <h:inputText value="#{usuarioBean.usuario.nome}" />
+        Nome: <h:outputText value="#{usuarioBean.usuario.nome}" />
         <br />
+        
+        <h:outputFormat value="Hello,{0}. You are from {1}.">
+            <f:param value="#{usuarioBean.usuario.id}" />
+            <f:param value="#{usuarioBean.usuario.nome}" />
+        </h:outputFormat>
         
         <br />
         
         
         <h:form id="endereco">
            
-            Rua: <h:inputText id="rua" value="#{usuarioBean.endereco.rua}" />
+            Rua: <h:inputText id="rua" value="#{enderecoBean.endereco.rua}" />
             <br />
-            CEP: <h:inputText id="cep" value="#{usuarioBean.endereco.cep}" />
+            CEP: <h:inputText id="cep" value="#{enderecoBean.endereco.cep}" />
             <br />
-            Estado: <h:inputText id="estado" value="#{usuarioBean.endereco.estado}" />
+            Estado: <h:inputText id="estado" value="#{enderecoBean.endereco.estado}" />
             <br />
-            Cidade: <h:inputText id="cidade" value="#{usuarioBean.endereco.cidade}" />
+            Cidade: <h:inputText id="cidade" value="#{enderecoBean.endereco.cidade}" />
             <br />
-            <h:commandButton type="submit" value="Salvar Endereco" action="#{usuarioBean.salvarEndereco}" />
+            <h:commandButton type="submit" value="Salvar Endereco" action="#{enderecoBean.salvarEndereco}" />
 
         </h:form>
         
         
-        <h:form>
-            <h:dataTable value="#{usuarioBean.listarEnderecos()}" var="endereco">
-                <h:column>
-                    <f:facet name="header">Rua</f:facet>
-                    <h:outputText value="#{endereco.rua}"></h:outputText>
-                </h:column>
 
-                <h:column>
-                    <f:facet name="header">CEP</f:facet>
-                    <h:outputText value="#{endereco.cep}"></h:outputText>
-                </h:column>
-                
-                <h:column>
-                    <f:facet name="header">Cidade</f:facet>
-                    <h:outputText value="#{endereco.cidade}"></h:outputText>
-                </h:column>
-                
-                <h:column>
-                    <f:facet name="header">Estado</f:facet>
-                    <h:outputText value="#{endereco.estado}"></h:outputText>
-                </h:column>
-
-            </h:dataTable>
-        </h:form>
         
     </h:body>
 </html>
