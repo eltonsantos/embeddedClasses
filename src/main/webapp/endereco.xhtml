@@ -9,10 +9,7 @@
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />        
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         
-        <f:metadata>
-            <f:viewParam name="id" value="#{usuarioBean.usuario.id}" />
-            <f:viewParam name="nome" value="#{usuarioBean.usuario.nome}" />
-        </f:metadata>
+
         
     </h:head>
     <h:body>
@@ -29,21 +26,21 @@
         
         <h:form id="endereco">
            
-            Rua: <h:inputText id="rua" value="#{enderecoBean.endereco.rua}" />
+            Rua: <h:inputText id="rua" value="#{usuarioBean.endereco.rua}" />
             <br />
-            CEP: <h:inputText id="cep" value="#{enderecoBean.endereco.cep}" />
+            CEP: <h:inputText id="cep" value="#{usuarioBean.endereco.cep}" />
             <br />
-            Estado: <h:inputText id="estado" value="#{enderecoBean.endereco.estado}" />
+            Estado: <h:inputText id="estado" value="#{usuarioBean.endereco.estado}" />
             <br />
-            Cidade: <h:inputText id="cidade" value="#{enderecoBean.endereco.cidade}" />
+            Cidade: <h:inputText id="cidade" value="#{usuarioBean.endereco.cidade}" />
             <br />
-            <h:commandButton type="submit" value="Salvar Endereco" action="#{enderecoBean.salvarEndereco}" />
+            <h:commandButton type="submit" value="Salvar Endereco" action="#{usuarioBean.salvarEndereco}" />
 
         </h:form>
         
         
         <h:form>
-            <h:dataTable value="#{enderecoBean.listarEnderecos()}" var="endereco">
+            <h:dataTable value="#{usuarioBean.listarEnderecos()}" var="endereco">
                 <h:column>
                     <f:facet name="header">Rua</f:facet>
                     <h:outputText value="#{endereco.rua}"></h:outputText>

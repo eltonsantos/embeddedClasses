@@ -1,8 +1,6 @@
 package br.com.cagece.model;
 
 import java.io.Serializable;
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -20,12 +18,6 @@ public class Usuario implements Serializable {
     private String nome;
     
     @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name="rua", column=@Column(name="rua")),
-        @AttributeOverride(name="cep", column=@Column(name="cep")),
-        @AttributeOverride(name="estado", column=@Column(name="estado")),
-        @AttributeOverride(name="cidade", column=@Column(name="cidade"))
-    })
     private Endereco endereco;
 
     public Usuario() {
