@@ -40,8 +40,7 @@ public class UsuarioController implements Serializable {
         return "index?faces-redirect=true";
     }
     
-    public String executar(){
-        
+    public String executar(){        
         System.out.println("Passa aqui");
         FacesContext fc = FacesContext.getCurrentInstance();
 	this.usuarioId = getUsuarioParam(fc);
@@ -50,7 +49,6 @@ public class UsuarioController implements Serializable {
     }
     
     public String getUsuarioParam(FacesContext fc){
-
 	Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
 	return params.get("usuarioId");
 

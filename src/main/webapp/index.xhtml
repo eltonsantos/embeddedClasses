@@ -40,8 +40,6 @@
 
                 <h:column>
                     <f:facet name="header">Opcoes</f:facet>
-                    
-                    <h:link value="Cadastrar Endereco" outcome="endereco?faces-redirect=true" includeViewParams="true" />
                    
                     <h:commandButton value="Cadastrar endereço" action="#{usuarioBean.executar}">
                         <f:param name="usuarioId" value="#{usuario.id}" />
