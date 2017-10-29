@@ -42,7 +42,7 @@
                     <f:facet name="header">Opcoes</f:facet>
                    
                     <h:commandButton value="Cadastrar endereço" action="#{usuarioBean.executar}">
-                        <f:param name="usuarioId" value="#{usuario.id}" />
+                        <f:param name="usuarioId" value="#{usuarioBean.usuario.id}" />
                     </h:commandButton>
                     
                 </h:column>

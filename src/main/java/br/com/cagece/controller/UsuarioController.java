@@ -5,6 +5,7 @@ import br.com.cagece.model.Usuario;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
@@ -12,7 +13,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-@ViewScoped
+@SessionScoped
 @ManagedBean(name="usuarioBean")
 public class UsuarioController implements Serializable {
     

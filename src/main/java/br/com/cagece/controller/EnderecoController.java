@@ -5,11 +5,12 @@ import br.com.cagece.model.Usuario;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-@ViewScoped
+@SessionScoped
 @ManagedBean(name="enderecoBean")
 public class EnderecoController implements Serializable {
     
