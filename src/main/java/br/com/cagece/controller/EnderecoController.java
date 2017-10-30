@@ -18,7 +18,7 @@ public class EnderecoController implements Serializable {
     private EntityManager manager;
     private Endereco endereco;
     private Usuario usuario;
-    private String usuarioId;
+    private Integer usuarioId;
 
     public EnderecoController(){
         this.endereco = new Endereco();
@@ -28,19 +28,16 @@ public class EnderecoController implements Serializable {
         return manager.createNativeQuery("SELECT * FROM endereco", Endereco.class).getResultList();
     }
     
-    public String salvarEndereco(String usuarioId){
+    public String salvarEndereco(){
         manager.getTransaction().begin();
-        
-        if (usuario.getId() == null) {
-            System.out.println("Usuario vindo vazio");
-        } else {
-            System.out.println("--------------UsuarioId: " +this.usuarioId);
-            Usuario usuario = manager.find(Usuario.class, this.usuarioId);
-            System.out.println("------------------Usuario: " +usuario);
-            this.endereco.setUsuario(usuario);
-            manager.persist(endereco);
-        }
-        
+               
+        System.out.println("--------------UsuarioId: " +this.usuario.getId());
+        Usuario usuario = manager.find(Usuario.class, this.usuario.getId());
+        System.out.println("------------------Usuario: " +usuario);
+        this.endereco.setUsuario(usuario);
+        usuario.setEndereco(this.endereco);
+        manager.persist(endereco);
+           
         manager.getTransaction().commit();
         manager.close();
         return "endereco?faces-redirect=true";
@@ -54,11 +51,11 @@ public class EnderecoController implements Serializable {
         this.endereco = endereco;
     }
 
-    public String getUsuarioId() {
+    public Integer getUsuarioId() {
         return usuarioId;
     }
 
-    public void setUsuarioId(String usuarioId) {
+    public void setUsuarioId(Integer usuarioId) {
         this.usuarioId = usuarioId;
     }
 

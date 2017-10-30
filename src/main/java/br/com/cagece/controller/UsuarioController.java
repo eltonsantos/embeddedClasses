@@ -21,7 +21,6 @@ public class UsuarioController implements Serializable {
     private EntityManager manager;
     private Usuario usuario;
     private Endereco endereco;
-    private String usuarioId;
     
     public UsuarioController(){
         this.usuario = new Usuario();
@@ -63,13 +62,13 @@ public class UsuarioController implements Serializable {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-
+    /*
     public String getUsuarioId() {
         return usuarioId;
     }
 
     public void setUsuarioId(String usuarioId) {
         this.usuarioId = usuarioId;
-    }
+    }*/
     
 }
