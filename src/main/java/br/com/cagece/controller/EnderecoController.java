@@ -28,13 +28,19 @@ public class EnderecoController implements Serializable {
         return manager.createNativeQuery("SELECT * FROM endereco", Endereco.class).getResultList();
     }
     
-    public String salvarEndereco(){
+    public String salvarEndereco(String usuarioId){
         manager.getTransaction().begin();
-        System.out.println("--------------UsuarioId: " +usuarioId);
-        Usuario usuario = manager.find(Usuario.class, this.usuarioId);
-        System.out.println("------------------Usuario: " +usuario);
-        this.endereco.setUsuario(usuario);
-        manager.persist(endereco);
+        
+        if (usuario.getId() == null) {
+            System.out.println("Usuario vindo vazio");
+        } else {
+            System.out.println("--------------UsuarioId: " +this.usuarioId);
+            Usuario usuario = manager.find(Usuario.class, this.usuarioId);
+            System.out.println("------------------Usuario: " +usuario);
+            this.endereco.setUsuario(usuario);
+            manager.persist(endereco);
+        }
+        
         manager.getTransaction().commit();
         manager.close();
         return "endereco?faces-redirect=true";

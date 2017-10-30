@@ -40,29 +40,13 @@ public class UsuarioController implements Serializable {
         return "index?faces-redirect=true";
     }
     
-    public String executar(Usuario usuarioId){
-       System.out.println("------------------- Passa aqui: "+this.usuarioId);
-       Integer u = usuarioId.getId();
-       System.out.println("------------------- Passa aqui: "+u);
+    public String executar(Usuario usuario){
+       System.out.println("------------------- Passa aqui usuario: "+this.usuario);
+       Integer u = usuario.getId();
+       System.out.println("------------------- Passa aqui u: "+u);
        return "endereco?faces-redirect=true&usuarioId="+u;
     }
     
-    /*
-    public String executar(){        
-        System.out.println("------------------ Passa aqui");
-        FacesContext fc = FacesContext.getCurrentInstance();
-	this.usuarioId = getUsuarioParam(fc);
-        System.out.println("------------------ UsuarioId do Usuario: " +usuarioId);
-                
-        return "endereco?faces-redirect=true";
-    }
-    
-    public String getUsuarioParam(FacesContext fc){
-	Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
-	return params.get("usuarioId");
-
-    }
-    */
 
     public Usuario getUsuario() {
         return usuario;
