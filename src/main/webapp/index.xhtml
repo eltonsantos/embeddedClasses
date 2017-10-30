@@ -41,7 +41,7 @@
                 <h:column>
                     <f:facet name="header">Opcoes</f:facet>
                     
-                    <h:link value="Cadastrar endereço" outcome="endereco.xhtml?faces-redirect=true" includeViewParams="true" />
+                    <h:commandButton value="Cadastrar endereço" action="#{usuarioBean.executar(usuario)}" />
                     
                 </h:column>
             </h:dataTable>

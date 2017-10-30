@@ -40,6 +40,13 @@ public class UsuarioController implements Serializable {
         return "index?faces-redirect=true";
     }
     
+    public String executar(Usuario usuarioId){
+       System.out.println("------------------- Passa aqui: "+this.usuarioId);
+       Integer u = usuarioId.getId();
+       System.out.println("------------------- Passa aqui: "+u);
+       return "endereco?faces-redirect=true&usuarioId="+u;
+    }
+    
     /*
     public String executar(){        
         System.out.println("------------------ Passa aqui");
