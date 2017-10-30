@@ -13,7 +13,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-@SessionScoped
+@ViewScoped
 @ManagedBean(name="usuarioBean")
 public class UsuarioController implements Serializable {
     
@@ -25,7 +25,6 @@ public class UsuarioController implements Serializable {
     
     public UsuarioController(){
         this.usuario = new Usuario();
-        //this.endereco = new Endereco();
     }
     
     public List<Usuario> listarUsuarios(){

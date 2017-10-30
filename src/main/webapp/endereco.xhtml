@@ -40,11 +40,42 @@
             <br />
             Cidade: <h:inputText id="cidade" value="#{enderecoBean.endereco.cidade}" />
             <br />
-            <h:commandButton type="submit" value="Salvar Endereco" action="#{enderecoBean.salvarEndereco}" />
+            <h:commandButton type="submit" value="Salvar Endereco" action="#{enderecoBean.salvarEndereco()}" />
 
         </h:form>
         
         
+        
+        <h:form>
+            <h:dataTable value="#{enderecoBean.listarEnderecos()}" var="endereco">
+                
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    <h:outputText value="#{endereco.id}"></h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Rua</f:facet>
+                    <h:outputText value="#{endereco.rua}"></h:outputText>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">CEP</f:facet>
+                    <h:outputText value="#{endereco.cep}"></h:outputText>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Cidade</f:facet>
+                    <h:outputText value="#{endereco.cidade}"></h:outputText>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Estado</f:facet>
+                    <h:outputText value="#{endereco.estado}"></h:outputText>
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
 
         
     </h:body>
