@@ -18,7 +18,7 @@ public class EnderecoController implements Serializable {
     private EntityManager manager;
     private Endereco endereco;
     private Usuario usuario;
-    private Integer usuarioId;
+    private String usuarioId;
 
     public EnderecoController(){
         this.endereco = new Endereco();
@@ -30,7 +30,9 @@ public class EnderecoController implements Serializable {
     
     public String salvarEndereco(){
         manager.getTransaction().begin();
-        Usuario usuario = manager.find(Usuario.class, this.usuario.getId());
+        System.out.println("--------------UsuarioId: " +usuarioId);
+        Usuario usuario = manager.find(Usuario.class, this.usuarioId);
+        System.out.println("------------------Usuario: " +usuario);
         this.endereco.setUsuario(usuario);
         manager.persist(endereco);
         manager.getTransaction().commit();
@@ -46,11 +48,11 @@ public class EnderecoController implements Serializable {
         this.endereco = endereco;
     }
 
-    public Integer getUsuarioId() {
+    public String getUsuarioId() {
         return usuarioId;
     }
 
-    public void setUsuarioId(Integer usuarioId) {
+    public void setUsuarioId(String usuarioId) {
         this.usuarioId = usuarioId;
     }
 

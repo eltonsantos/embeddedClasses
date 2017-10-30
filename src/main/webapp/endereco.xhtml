@@ -15,21 +15,7 @@
     <h:body>
               
         <h1>Teste embedded</h1>
-        
-        Id: <h:outputText value="#{params.id}" />
-        Id: <h:outputText value="#{params.usuarioId}" />
-        <br />
-        Id: <h:outputText value="#{usuarioBean.usuarioId}" />
-        <br />
-        
-        <h:outputFormat value="Id:{0}. Nome: {1}.">
-            <f:param value="#{usuarioBean.usuario.id}" />
-            <f:param value="#{usuarioBean.usuarioId}" />
-        </h:outputFormat>
-        
-        <br />
-        
-        
+      
         <h:form id="endereco">
            
             Rua: <h:inputText id="rua" value="#{enderecoBean.endereco.rua}" />

@@ -12,7 +12,7 @@
         <f:metadata>
             <f:viewParam name="usuarioId" value="#{usuarioBean.usuario.id}" />
         </f:metadata>
-        
+       
     </h:head>
     <h:body>
         
@@ -40,10 +40,8 @@
 
                 <h:column>
                     <f:facet name="header">Opcoes</f:facet>
-                   
-                    <h:commandButton value="Cadastrar endereço" action="#{usuarioBean.executar}">
-                        <f:param name="usuarioId" value="#{usuarioBean.usuario.id}" />
-                    </h:commandButton>
+                    
+                    <h:link value="Cadastrar endereço" outcome="endereco.xhtml?faces-redirect=true" includeViewParams="true" />
                     
                 </h:column>
             </h:dataTable>
