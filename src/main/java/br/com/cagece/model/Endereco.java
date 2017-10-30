@@ -1,15 +1,26 @@
 package br.com.cagece.model;
 
 import java.io.Serializable;
-import javax.persistence.Embeddable;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
-@Embeddable
+@Entity
 public class Endereco implements Serializable {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String rua;
     private String cep;
     private String cidade;
     private String estado;
+    
+    @OneToOne(cascade=CascadeType.ALL)
+    private Usuario usuario;
 
     public Endereco() {
     }
@@ -21,6 +32,14 @@ public class Endereco implements Serializable {
         this.estado = estado;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     public String getRua() {
         return rua;
     }
@@ -52,5 +71,14 @@ public class Endereco implements Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
     
 }
