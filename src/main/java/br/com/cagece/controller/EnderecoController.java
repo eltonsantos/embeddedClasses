@@ -4,6 +4,7 @@ import br.com.cagece.model.Endereco;
 import br.com.cagece.model.Usuario;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
@@ -17,9 +18,15 @@ public class EnderecoController implements Serializable {
     @Inject
     private EntityManager manager;
     private Endereco endereco;
-    private Usuario usuario;
+    private Usuario usuario = new Usuario();
     private Integer usuarioId;
-
+    /*
+    @PostConstruct
+    public void init(){
+        Map<String,String> params = fc.getExternalContext().getRequestParameterMap();  
+        this.usuario = new Usuario();
+    }
+    */
     public EnderecoController(){
         this.endereco = new Endereco();
     }
@@ -29,13 +36,14 @@ public class EnderecoController implements Serializable {
     }
     
     public String salvarEndereco(){
+        System.out.println("--------------ENTRA AQUI");
         manager.getTransaction().begin();
                
-        System.out.println("--------------UsuarioId: " +this.usuario.getId());
-        Usuario usuario = manager.find(Usuario.class, this.usuario.getId());
-        System.out.println("------------------Usuario: " +usuario);
-        this.endereco.setUsuario(usuario);
-        usuario.setEndereco(this.endereco);
+        System.out.println("--------------UsuarioId: " +this.usuarioId);
+        Usuario usu = manager.find(Usuario.class, this.usuarioId);
+        System.out.println("------------------Usuario: " +usu);
+        this.endereco.setUsuario(usu);
+        usu.setEndereco(this.endereco);
         manager.persist(endereco);
            
         manager.getTransaction().commit();

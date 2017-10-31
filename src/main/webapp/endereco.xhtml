@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         
         <f:metadata>
-            <f:viewParam name="usuario" value="#{usuarioBean.usuario.id}" />
+            <f:viewParam name="usuarioId" value="#{enderecoBean.usuarioId}" />
         </f:metadata>
         
     </h:head>
@@ -19,7 +19,9 @@
         <h1>Teste embedded</h1>
       
         <h:form id="endereco">
-           
+            
+            <input type="hidden" name="usuarioId" value="#{param.usuarioId}" />
+            
             Rua: <h:inputText id="rua" value="#{enderecoBean.endereco.rua}" />
             <br />
             CEP: <h:inputText id="cep" value="#{enderecoBean.endereco.cep}" />
