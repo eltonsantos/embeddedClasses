@@ -7,6 +7,7 @@
     
     <class>br.com.cagece.model.Usuario</class>
     <class>br.com.cagece.model.Endereco</class>
+    <class>br.com.cagece.model.Pessoa</class>
         
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/embedded" />
